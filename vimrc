@@ -1,10 +1,15 @@
+" pre-install
+" 1. curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" 2. git clone https://github.com/jacoborus/tender.vim ~/.vim/pack/vendor/start/tendor
+" 
 syntax on
 filetype plugin indent on
 let mapleader=" "
-set encoding=utf-8
 set laststatus=2
 set cursorline
 set linebreak
+set encoding=utf-8
 
 set autoindent
 set showmode
@@ -21,7 +26,7 @@ nmap <leader>q :q<CR>
 nmap <leader>r :source $MYVIMRC<CR>
 
 " setting for nerdtree
-nnoremap <silent> <leader>e :NERDTreeFind<cr>
+map <C-n> :NERDTreeToggle<CR>
 
 " setting for tender
 " 开启 24 位真彩色支持
@@ -43,6 +48,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+Plug 'preservim/nerdtree'
+
+call plug#end()
 
 
 hi Normal ctermfg=252 ctermbg=none
