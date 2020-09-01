@@ -56,6 +56,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'preservim/nerdtree'
 
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 
