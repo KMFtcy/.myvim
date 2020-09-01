@@ -26,6 +26,7 @@ nmap <leader>r :source $MYVIMRC<CR>
 
 " setting for fzf
 nmap <C-p> :Files<CR>
+
 nmap <C-e> :Buffers<CR>
 
 " setting for nerdtree
