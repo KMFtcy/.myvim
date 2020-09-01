@@ -18,7 +18,8 @@ set scrolloff=5
 set tabstop=4
 set shiftwidth=4
 
-################################
+" ##########################
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -33,7 +34,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
-################################
+
+" ##########################
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>r :source $MYVIMRC<CR>
@@ -45,6 +47,9 @@ nmap <C-e> :Buffers<CR>
 
 " setting for nerdtree
 map <C-n> :NERDTreeToggle<CR>
+
+" setting for fugitive
+nmap <leader>g :Git 
 
 " 设置主题
 set termguicolors
