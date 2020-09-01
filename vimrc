@@ -20,10 +20,13 @@ set shiftwidth=4
 set colorcolumn=100
 
 
-noremap X S
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>r :source $MYVIMRC<CR>
+
+" setting for fzf
+nmap <C-p> :Files<CR>
+nmap <C-e> :Buffers<CR>
 
 " setting for nerdtree
 map <C-n> :NERDTreeToggle<CR>
@@ -45,6 +48,8 @@ highlight StatusLineTerm guibg=#444444 guifg=#b3deef
 highlight StatusLineTermNC guibg=#444444 guifg=#999999
 
 call plug#begin('~/.vim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
