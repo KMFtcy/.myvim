@@ -1,5 +1,5 @@
 sudo add-apt-repository ppa:jonathonf/vim
-apt update -y
+apt-get update -y
 apt install vim -y
 basepath=$(cd `dirname $0`; pwd)
 if [ ! -f "~/.vimrc" ]; then
