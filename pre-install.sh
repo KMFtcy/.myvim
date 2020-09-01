@@ -1,6 +1,11 @@
-sudo add-apt-repository ppa:jonathonf/vim
 apt-get update -y
-apt-get install vim -y
+cd $HOME
+apt-get install gcc git ncurses-dev
+git clone --depth=1 https://github.com/vim/vim.git
+cd vim/src
+make
+make install
+cd ../..
 basepath=$(cd `dirname $0`; pwd)
 if [ ! -f "~/.vimrc" ]; then
 	rm  ~/.vimrc
