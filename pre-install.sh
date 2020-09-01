@@ -1,6 +1,7 @@
+apt update -y
 basepath=$(cd `dirname $0`; pwd)
 if [ ! -f "~/.vimrc" ]; then
-	mv ~/.vimrc ~/.vimrc.bak
+	rm  ~/.vimrc
 fi
 # install vimrc
 ln -s $basepath/vimrc ~/.vimrc
@@ -10,7 +11,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 git clone https://github.com/jacoborus/tender.vim ~/.vim/pack/vendor/start/tendor
 
-wget https://nodejs.org/dist/v12.18.3/node-v12.18.3-linux-x64.tar.xz ~/node.tar.xz && xz -d ~/node.tar.xz && tar -xvf  ~/node.tar \
+curl https://nodejs.org/dist/v12.18.3/node-v12.18.3-linux-x64.tar.xz -o ~/node.tar.xz && xz -d ~/node.tar.xz && tar -xvf  ~/node.tar \
 	&& ln -s ~/node-v12.18.3-linux-x64/bin/node /usr/local/bin && ln -s ~/node-v12.18.3-linux-x64/bin/npm /usr/local/bin && ln -s ~/node-v12.18.3-linux-x64/bin/npx /usr/local/bin
 
 

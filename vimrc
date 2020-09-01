@@ -17,7 +17,6 @@ set number
 set scrolloff=5
 set tabstop=4
 set shiftwidth=4
-set colorcolumn=100
 
 
 nmap <leader>w :w<CR>
@@ -36,8 +35,9 @@ map <C-n> :NERDTreeToggle<CR>
 " 开启 24 位真彩色支持
 " 24位真彩色信息请参考 https://gist.github.com/XVilka/8346728
 set termguicolors
+hi Normal ctermfg=252 ctermbg=none
 " 设置主题
-color tender
+colorscheme codedark
 " tender 默认背景色是一种亮灰色，晚上特别不舒服，改成纯黑
 highlight Normal guibg=#000001
 " 改背景后选中区域无法高亮，也得调一下
@@ -59,7 +59,7 @@ Plug 'preservim/nerdtree'
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'tomasiser/vim-code-dark'
+
 call plug#end()
 
-
-hi Normal ctermfg=252 ctermbg=none
