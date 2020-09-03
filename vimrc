@@ -55,7 +55,7 @@ nmap <leader>g :Git
 " =========================
 " setting for coc.nvim
 
-let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp']
+let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh']
 
 " TextEdit might fail if hidden is not set.
 set hidden
