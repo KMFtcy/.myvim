@@ -13,8 +13,8 @@ set encoding=utf-8
 
 set autoindent
 set showmode
-set number
-set scrolloff=5
+set relativenumber
+set scrolloff=15
 set tabstop=4
 set shiftwidth=4
 
@@ -33,6 +33,9 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'tomasiser/vim-code-dark'
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
 
 " ##########################
@@ -42,7 +45,6 @@ nmap <leader>r :source $MYVIMRC<CR>
 
 " setting for fzf
 nmap <C-p> :Files<CR>
-
 nmap <C-e> :Buffers<CR>
 
 " setting for nerdtree
@@ -51,6 +53,10 @@ map <C-n> :NERDTreeToggle<CR>
 " setting for fugitive
 nmap <leader>g :Git 
 
+" setting for buffer switch
+map <C-j> :bnext<CR>
+map <C-k> :bprev<CR>
+map <C-w> :bdelete<CR>
 
 " =========================
 " setting for coc.nvim
@@ -87,7 +93,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
+" Use <c-l> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <C-l> coc#refresh()
 else
@@ -116,6 +122,13 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" =========================
+
+" =========================
+" setting for airline
+
+let g:airline#extensions#tabline#enabled = 1
 
 " =========================
 
