@@ -36,6 +36,9 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'tpope/vim-commentary'
+
+
 call plug#end()
 
 " ##########################
@@ -61,7 +64,7 @@ map <C-w> :bdelete<CR>
 " =========================
 " setting for coc.nvim
 
-let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh']
+let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-pairs' ]
 
 " TextEdit might fail if hidden is not set.
 set hidden
