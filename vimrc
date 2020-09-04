@@ -46,8 +46,8 @@ nmap <leader>q :q<CR>
 nmap <leader>r :source $MYVIMRC<CR>
 
 " setting for fzf
-nmap <C-f>f :Ag<CR>
-nmap <C-f>a :Lines<CR>
+nmap <C-f>a :Ag<CR>
+nmap <C-f>f :Lines<CR>
 
 " setting for nerdtree
 map <C-e> :NERDTreeToggle<CR>
@@ -56,8 +56,8 @@ map <C-e> :NERDTreeToggle<CR>
 nmap <leader>g :Git 
 
 " setting for buffer switch
-map <C-j> :bnext<CR>
-map <C-k> :bprev<CR>
+map <C-k> :bnext<CR>
+map <C-j> :bprev<CR>
 map <C-w> :bdelete<CR>
 
 " =========================
