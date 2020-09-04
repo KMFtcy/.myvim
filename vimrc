@@ -38,7 +38,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-commentary'
 
-
 call plug#end()
 
 " ##########################
@@ -47,11 +46,11 @@ nmap <leader>q :q<CR>
 nmap <leader>r :source $MYVIMRC<CR>
 
 " setting for fzf
-nmap <C-p> :Files<CR>
-nmap <C-e> :Buffers<CR>
+nmap <C-f>f :Ag<CR>
+nmap <C-f>a :Lines<CR>
 
 " setting for nerdtree
-map <C-n> :NERDTreeToggle<CR>
+map <C-e> :NERDTreeToggle<CR>
 
 " setting for fugitive
 nmap <leader>g :Git 

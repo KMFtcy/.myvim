@@ -1,6 +1,7 @@
 apt-get update -y
 cd $HOME
 apt-get install gcc git ncurses-dev make -y
+apt-get install silversearcher-ag
 git clone --depth=1 https://github.com/vim/vim.git
 cd vim/src
 make
