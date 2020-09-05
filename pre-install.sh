@@ -9,7 +9,7 @@ make install
 cd ../..
 basepath=$(cd `dirname $0`; pwd)
 if [ -f "~/.vimrc" ]; then
-	rm  ~/.vimrc
+	mv  ~/.vimrc ~/.vimrc.previous
 fi
 # install vimrc
 ln -s $basepath/vimrc ~/.vimrc
