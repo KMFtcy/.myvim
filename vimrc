@@ -58,7 +58,7 @@ nmap <leader>g :Git
 " setting for buffer switch
 map <C-k> :bnext<CR>
 map <C-j> :bprev<CR>
-map <C-w> :bdelete<CR>
+map <C-w>w :bdelete<CR>
 
 " =========================
 " setting for coc.nvim
