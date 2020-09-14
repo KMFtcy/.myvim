@@ -41,7 +41,7 @@ Plug 'tpope/vim-commentary'
 call plug#end()
 
 " ##########################
-nmap <leader>w :w<CR>
+nmap <C-s> :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>r :source $MYVIMRC<CR>
 
