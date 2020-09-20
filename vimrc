@@ -38,6 +38,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'tpope/vim-commentary'
 
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 " ##########################
@@ -67,7 +69,7 @@ noremap <C-w>w :bdelete<CR>
 " =========================
 " setting for coc.nvim
 
-let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-pairs' ]
+let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh' ]
 
 " TextEdit might fail if hidden is not set.
 set hidden
