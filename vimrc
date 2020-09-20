@@ -40,6 +40,8 @@ Plug 'tpope/vim-commentary'
 
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'scrooloose/nerdcommenter'
+
 call plug#end()
 
 " ##########################
@@ -140,6 +142,12 @@ let g:airline#extensions#tabline#enabled = 1
 
 " =========================
 
+" =========================
+" setting for nerdcommenter
+
+let g:NERDSpaceDelims=1
+
+" =========================
 " 设置主题
 set termguicolors
 colorscheme codedark
