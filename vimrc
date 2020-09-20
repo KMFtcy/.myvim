@@ -48,7 +48,7 @@ nmap <leader>r :source $MYVIMRC<CR>
 " setting for searching shortcut
 nmap <C-f>a :Ag<CR>
 nmap <C-f>f :Lines<CR>
-nmap <C-f>iw yiw:Lines<CR>
+nmap <C-f>iw yiw:Lines <C-r>"<CR>
 
 " setting for nerdtree
 map <C-e> :NERDTreeToggle<CR>
