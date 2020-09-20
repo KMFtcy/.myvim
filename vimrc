@@ -41,25 +41,28 @@ Plug 'tpope/vim-commentary'
 call plug#end()
 
 " ##########################
-nmap <C-s> :w<CR>
-nmap <leader>q :q<CR>
-nmap <leader>r :source $MYVIMRC<CR>
+nnoremap <C-s> :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>r :source $MYVIMRC<CR>
 
 " setting for searching shortcut
-nmap <C-f>a :Ag<CR>
-nmap <C-f>f :Lines<CR>
-nmap <C-f>iw yiw:Lines <C-r>"<CR>
+nnoremap <C-f>a :Ag<CR> 
+nnoremap <C-f>f :Lines<CR>
+nnoremap <C-f>iwf yiw:Lines <C-r>"<CR>
+nnoremap <C-f>iwa yiw:Ag <C-r>"<CR>
+vnoremap <C-f>a y:Ag <C-r>"<CR>
+vnoremap <C-f>f y:Lines <C-r>"<CR>
 
 " setting for nerdtree
-map <C-e> :NERDTreeToggle<CR>
+noremap <C-e> :NERDTreeToggle<CR>
 
 " setting for fugitive
-nmap <leader>g :Git 
+noremap <leader>g :Git 
 
 " setting for buffer switch
-map <C-k> :bnext<CR>
-map <C-j> :bprev<CR>
-map <C-w>w :bdelete<CR>
+noremap <C-k> :bnext<CR>
+noremap <C-j> :bprev<CR>
+noremap <C-w>w :bdelete<CR>
 
 " =========================
 " setting for coc.nvim
