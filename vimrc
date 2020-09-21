@@ -48,6 +48,8 @@ call plug#end()
 nnoremap <C-s> :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
+inoremap <C-d> <ESC>
+vnoremap <C-d> <ESC>
 
 " setting for searching shortcut
 nnoremap <C-f>a :Ag<CR> 
