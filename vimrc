@@ -53,11 +53,12 @@ vnoremap <C-d> <ESC>
 
 " setting for searching shortcut
 nnoremap <C-f>a :Ag<CR> 
-nnoremap <C-f>f :Lines<CR>
+nnoremap <C-f>f :Files<CR>
+nnoremap <C-f>l :BLines<CR>
 nnoremap <C-f>iwf yiw:Lines <C-r>"<CR>
 nnoremap <C-f>iwa yiw:Ag <C-r>"<CR>
 vnoremap <C-f>a y:Ag <C-r>"<CR>
-vnoremap <C-f>f y:Lines <C-r>"<CR>
+vnoremap <C-f>l y:BLines <C-r>"<CR>
 
 " setting for nerdtree
 noremap <C-e> :NERDTreeToggle<CR>
