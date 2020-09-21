@@ -68,8 +68,8 @@ autocmd VimEnter * NERDTree
 noremap <leader>g :Git 
 
 " setting for buffer switch
-noremap <C-k> :bnext<CR>
-noremap <C-j> :bprev<CR>
+noremap <C-j> :bnext<CR>
+noremap <C-k> :bprev<CR>
 noremap <C-w>w :bdelete<CR>
 
 " =========================
