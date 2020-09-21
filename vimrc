@@ -62,6 +62,7 @@ vnoremap <C-f>l y:BLines <C-r>"<CR>
 
 " setting for nerdtree
 noremap <C-e> :NERDTreeToggle<CR>
+autocmd VimEnter * NERDTree
 
 " setting for fugitive
 noremap <leader>g :Git 
