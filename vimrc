@@ -42,6 +42,8 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'easymotion/vim-easymotion'
+
 call plug#end()
 
 " ##########################
@@ -74,6 +76,9 @@ noremap <leader>gp :Git push<CR>
 noremap <C-j> :bnext<CR>
 noremap <C-k> :bprev<CR>
 noremap <C-w>w :bdelete<CR>
+
+" seting for easymotion
+
 
 " =========================
 " setting for coc.nvim
@@ -154,6 +159,9 @@ let g:airline#extensions#tabline#enabled = 1
 
 let g:NERDSpaceDelims=1
 
+" =========================
+" setting for easymotion
+let g:EasyMotion_smartcase = 1
 " =========================
 " 设置主题
 set termguicolors
