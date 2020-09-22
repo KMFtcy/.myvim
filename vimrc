@@ -66,6 +66,9 @@ autocmd VimEnter * NERDTree
 
 " setting for fugitive
 noremap <leader>g :Git 
+noremap <leader>ga :Git add .<CR>
+noremap <leader>gc :Git commit<CR>
+noremap <leader>gp :Git push<CR>
 
 " setting for buffer switch
 noremap <C-j> :bnext<CR>
