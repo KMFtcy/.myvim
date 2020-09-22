@@ -42,6 +42,8 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'airblade/vim-gitgutter'
+
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()
