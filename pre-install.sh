@@ -5,11 +5,9 @@ apt-get install gcc git ncurses-dev make -y
 # abandon silversearch, choose ripgre
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 sudo dpkg -i ripgrep_11.0.2_amd64.deb
-git clone --depth=1 https://github.com/vim/vim.git
-cd vim/src
-make
-make install
-cd ../..
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt-get update -y
+sudo apt-get install vim -y
 basepath=$(cd `dirname $0`; pwd)
 if [ -f "~/.vimrc" ]; then
 	mv  ~/.vimrc ~/.vimrc.previous
