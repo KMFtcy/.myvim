@@ -26,8 +26,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }
 
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -61,13 +62,18 @@ inoremap <C-d> <ESC>
 vnoremap <C-d> <ESC>
 
 " setting for searching shortcut
-nnoremap <C-f>a :Rg<CR> 
-nnoremap <C-f>f :Files<CR>
-nnoremap <C-f>l :BLines<CR>
-nnoremap <C-f>iwf yiw:Lines <C-r>"<CR>
-nnoremap <C-f>iwa yiw:Rg <C-r>"<CR>
-vnoremap <C-f>a y:Rg <C-r>"<CR>
-vnoremap <C-f>l y:BLines <C-r>"<CR>
+nnoremap <C-f>a :Leaderf rg<CR> 
+" nnoremap <C-f>a :Rg<CR> 
+nnoremap <C-f>f :Leaderf file<CR> 
+" nnoremap <C-f>f :Files<CR>
+nnoremap <C-f>l :Leaderf line<CR>
+" nnoremap <C-f>l :BLines<CR>
+nnoremap <C-f>iwf yiw:Leaderf line <C-r>"<CR>
+nnoremap <C-f>iwa yiw:Leaderf rg <C-r>"<CR>
+vnoremap <C-f>a y:Leaderf rg <C-r>"<CR>
+vnoremap <C-f>l y:Leaderf line <C-r>"<CR>
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
 
 " setting for nerdtree and nerdtree-tabs
 noremap <C-e> :NERDTreeToggle<CR>
