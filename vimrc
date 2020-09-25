@@ -74,6 +74,11 @@ let g:Lf_GtagsAutoGenerate = 1
 
 
 " =========================
+" setting for windows managemet 
+noremap <C-w>o :tabe %<CR>
+
+" =========================
+" =========================
 " setting for gtags and vim-gutentags
 
 let $GTAGSLABEL = 'native-pygments'
