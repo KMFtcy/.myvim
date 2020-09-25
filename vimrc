@@ -117,7 +117,7 @@ noremap <C-e> :NERDTreeToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_autofind=1
 let NERDTreeShowLineNumbers=1
-let NERDTreeAutoCenter=1
+" let NERDTreeAutoCenter=1
 let NERDTreeShowBookmarks=1
 " let g:NERDTreeGitStatusIndicatorMapCustom = {
 " \ "Modified" : "*",
@@ -180,6 +180,14 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 " Use <c-l> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <C-l> coc#refresh()
@@ -201,8 +209,8 @@ function! s:show_documentation()
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location
 " list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
