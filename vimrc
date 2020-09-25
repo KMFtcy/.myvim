@@ -5,6 +5,8 @@
 " 
 syntax on
 filetype plugin indent on
+set nocompatible
+set incsearch
 let mapleader=" "
 set laststatus=2
 set cursorline
@@ -28,6 +30,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'preservim/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'tpope/vim-fugitive'
 
@@ -52,6 +56,7 @@ call plug#end()
 nnoremap <C-s> :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
+nnoremap <leader>t :terminal<CR>
 inoremap <C-d> <ESC>
 vnoremap <C-d> <ESC>
 
@@ -64,9 +69,24 @@ nnoremap <C-f>iwa yiw:Rg <C-r>"<CR>
 vnoremap <C-f>a y:Rg <C-r>"<CR>
 vnoremap <C-f>l y:BLines <C-r>"<CR>
 
-" setting for nerdtree
+" setting for nerdtree and nerdtree-tabs
 noremap <C-e> :NERDTreeToggle<CR>
-autocmd VimEnter * NERDTree
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_autofind=1
+let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+let NERDTreeShowBookmarks=1
+" let g:NERDTreeGitStatusIndicatorMapCustom = {
+" \ "Modified" : "*",
+" \ "Staged" : "",
+" \ "Untracked" : "",
+" \ "Renamed" : "",
+" \ "Unmerged" : "═",
+" \ "Deleted" : "",
+" \ "Dirty" : "",
+" \ "Clean" : "︎",
+" \ "Unknown" : "?"
+" \}
 
 " setting for fugitive
 noremap <leader>g :Git 
