@@ -64,9 +64,8 @@ vnoremap <C-d> <ESC>
 nnoremap <leader>fa :Leaderf rg<CR> 
 nnoremap <leader>ff :Leaderf file<CR> 
 nnoremap <leader>fl :Leaderf line<CR>
-nnoremap <leader>fiwf yiw:Leaderf line <C-r>"<CR>
-nnoremap <leader>fiwa yiw:Leaderf rg <C-r>"<CR>
 vnoremap <leader>fa y:Leaderf rg <C-r>"<CR>
+vnoremap <leader>ff y:Leaderf file --input <C-r>"<CR> 
 vnoremap <leader>fl y:Leaderf line --input <C-r>"<CR>
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
