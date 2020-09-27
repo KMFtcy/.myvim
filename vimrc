@@ -113,7 +113,7 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 let g:gutentags_auto_add_gtags_cscope = 0
 " =========================
 " setting for nerdtree and nerdtree-tabs
-noremap <leader>e :NERDTreeToggle<CR>
+noremap <leader>e :NERDTreeMirrorToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_autofind=1
 let NERDTreeShowLineNumbers=1
