@@ -132,7 +132,7 @@ let NERDTreeShowBookmarks=1
 " \}
 
 " setting for fugitive
-noremap <leader>g :Git 
+nnoremap <leader>gg :tabe<CR>:-tabmove<CR>:term ++curwin ++close lazygit<CR>
 noremap <leader>ga :Git add .<CR>
 noremap <leader>gc :Git commit<CR>
 noremap <leader>gp :Git push<CR>
