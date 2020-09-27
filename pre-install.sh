@@ -1,7 +1,7 @@
 apt-get update -y
 basepath=$(cd `dirname $0`; pwd)
 cd $HOME
-apt-get install gcc git ncurses-dev make -y
+apt-get install gcc git ncurses-dev make python2-dev python3-dev -y
 # apt-get install silversearcher-ag 
 # abandon silversearch, choose ripgre
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
