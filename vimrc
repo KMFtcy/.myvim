@@ -61,13 +61,13 @@ inoremap <C-d> <ESC>
 vnoremap <C-d> <ESC>
 
 " setting for searching shortcut
-nnoremap <C-f>a :Leaderf rg<CR> 
-nnoremap <C-f>f :Leaderf file<CR> 
-nnoremap <C-f>l :Leaderf line<CR>
-nnoremap <C-f>iwf yiw:Leaderf line <C-r>"<CR>
-nnoremap <C-f>iwa yiw:Leaderf rg <C-r>"<CR>
-vnoremap <C-f>a y:Leaderf rg <C-r>"<CR>
-vnoremap <C-f>l y:Leaderf line --input <C-r>"<CR>
+nnoremap <leader>fa :Leaderf rg<CR> 
+nnoremap <leader>ff :Leaderf file<CR> 
+nnoremap <leader>fl :Leaderf line<CR>
+nnoremap <leader>fiwf yiw:Leaderf line <C-r>"<CR>
+nnoremap <leader>fiwa yiw:Leaderf rg <C-r>"<CR>
+vnoremap <leader>fa y:Leaderf rg <C-r>"<CR>
+vnoremap <leader>fl y:Leaderf line --input <C-r>"<CR>
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_GtagsAutoGenerate = 1
