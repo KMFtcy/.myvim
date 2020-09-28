@@ -157,7 +157,7 @@ let NERDTreeShowBookmarks=1
 " =========================
 " setting for git related plugin
 " =========================
-nnoremap <leader>gg :tabe<CR>:-tabmove<CR>:NERDTreeClose<CR>:term ++curwin ++close lazygit<CR>
+nnoremap <leader>gl :tabe<CR>:-tabmove<CR>:NERDTreeClose<CR>:term ++curwin ++close lazygit<CR>
 nnoremap <leader>gb :Gblame<CR>
 
 " =========================
