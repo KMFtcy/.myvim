@@ -260,6 +260,16 @@ map t <Plug>(easymotion-s)
 
 
 " =========================
+" setting for gitgutter
+" =========================
+let g:gitgutter_highlight_lines = 1
+let g:gitgutter_map_keys = 0
+nnoremap ]c <Plug>(GitGutterNextHunk)
+nnoremap [c <Plug>(GitGutterPrevHunk)
+nnoremap <leader>gf :GitGutterFold<CR>
+
+
+" =========================
 " 设置主题
 " =========================
 set termguicolors
