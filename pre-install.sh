@@ -1,5 +1,5 @@
 apt-get update -y
-basepath=$(cd `dirname $0`; pwd)
+basepath=`dirname $0`
 cd $HOME
 apt-get install gcc git ncurses-dev make python2-dev python3-dev -y
 # apt-get install silversearcher-ag 
