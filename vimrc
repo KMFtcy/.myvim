@@ -1,8 +1,20 @@
-" pre-install
-" 1. curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" 2. git clone https://github.com/jacoborus/tender.vim ~/.vim/pack/vendor/start/tendor
-" 
+" =========================
+"  _ __ ___  _   ___   _(_)_ __ ___
+" | '_ ` _ \| | | \ \ / / | '_ ` _ \
+" | | | | | | |_| |\ V /| | | | | | |
+" |_| |_| |_|\__, | \_/ |_|_| |_| |_|
+"            |___/
+"
+" My personal vim config. I know there is already tons of vim settings outside
+" here, but I also believe a vimer should not stop adjusting his/her own vim
+" settings until his/her vim-sword sharp and convenient enough to themselves!
+" It's lots of fun and even a bit romantic!
+" =========================
+
+
+" =========================
+" Global settings
+" =========================
 syntax on
 filetype plugin indent on
 set nocompatible
@@ -20,8 +32,10 @@ set scrolloff=15
 set tabstop=4
 set shiftwidth=4
 
-" ##########################
 
+" =========================
+" Plugin list
+" =========================
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -52,7 +66,10 @@ Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
-" ##########################
+"
+" =========================
+" some basic mappings
+" =========================
 nnoremap <C-s> :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
@@ -60,7 +77,10 @@ nnoremap <leader>t :terminal<CR>
 inoremap <C-d> <ESC>
 vnoremap <C-d> <ESC>
 
+
+" =========================
 " setting for searching shortcut
+" =========================
 nnoremap <leader>fa :Leaderf rg<CR> 
 nnoremap <leader>ff :Leaderf file<CR> 
 nnoremap <leader>fl :Leaderf line<CR>
@@ -74,12 +94,13 @@ let g:Lf_GtagsAutoGenerate = 1
 
 " =========================
 " setting for windows managemet 
+" =========================
 noremap <C-w>o :tabe %<CR>
 
-" =========================
+
 " =========================
 " setting for gtags and vim-gutentags
-
+" =========================
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
 " gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名
@@ -110,8 +131,11 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
 " 禁用 gutentags 自动加载 gtags 数据库的行为
 let g:gutentags_auto_add_gtags_cscope = 0
+
+
 " =========================
 " setting for nerdtree and nerdtree-tabs
+" =========================
 noremap <leader>e :NERDTreeMirrorToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_autofind=1
@@ -130,23 +154,23 @@ let NERDTreeShowBookmarks=1
 " \ "Unknown" : "?"
 " \}
 
-" setting for fugitive
-nnoremap <leader>gl :tabe<CR>:-tabmove<CR>:NERDTreeClose<CR>:term ++curwin ++close lazygit<CR>
-noremap <leader>ga :Git add .<CR>
-noremap <leader>gc :Git commit<CR>
-noremap <leader>gp :Git push<CR>
+" =========================
+" setting for git related plugin
+" =========================
+nnoremap <leader>gg :tabe<CR>:-tabmove<CR>:NERDTreeClose<CR>:term ++curwin ++close lazygit<CR>
+nnoremap <leader>gb :Gblame<CR>
 
+" =========================
 " setting for buffer switch
+" =========================
 noremap <C-j> :bnext<CR>
 noremap <C-k> :bprev<CR>
 noremap <C-w>w :bdelete<CR>
 
-" seting for easymotion
-
 
 " =========================
 " setting for coc.nvim
-
+" =========================
 let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh' ]
 
 " TextEdit might fail if hidden is not set.
@@ -217,24 +241,27 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" =========================
 
 " =========================
 " setting for airline
-
+" =========================
 let g:airline#extensions#tabline#enabled = 1
 
-" =========================
 
 " =========================
 " setting for nerdcommenter
-
+" =========================
 let g:NERDSpaceDelims=1
+
 
 " =========================
 " setting for easymotion
+" =========================
 let g:EasyMotion_smartcase = 1
+
+
 " =========================
 " 设置主题
+" =========================
 set termguicolors
 colorscheme codedark
