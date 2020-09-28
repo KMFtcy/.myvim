@@ -73,7 +73,7 @@ call plug#end()
 nnoremap <C-s> :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
-nnoremap <leader>t :terminal<CR>
+nnoremap <leader>t :top terminal<CR>
 inoremap <C-d> <ESC>
 vnoremap <C-d> <ESC>
 
