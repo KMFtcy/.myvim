@@ -263,7 +263,7 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings"
 " " `s<CR>` repeat last find motion.
 " nmap t <Plug>(easymotion-s)
 " Bidirectional & within line 't' motion
-omap t <Plug>(easymotion-bd-tl)
+map t <Plug>(easymotion-bd-tl)
 
 
 " =========================
