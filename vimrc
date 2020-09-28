@@ -259,11 +259,8 @@ let g:NERDSpaceDelims=1
 " =========================
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_do_mapping = 0 " Disable default mappings"
-" Jump to anywhere with only `s{char}{target}`
-" " `s<CR>` repeat last find motion.
-" nmap t <Plug>(easymotion-s)
-" Bidirectional & within line 't' motion
-map t <Plug>(easymotion-bd-tl)
+" Jump to anywhere with only `t{char}{target}`
+map t <Plug>(easymotion-s)
 
 
 " =========================
