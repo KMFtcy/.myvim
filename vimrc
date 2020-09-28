@@ -160,6 +160,7 @@ let NERDTreeShowBookmarks=1
 nnoremap <leader>gl :tabe<CR>:-tabmove<CR>:NERDTreeClose<CR>:term ++curwin ++close lazygit<CR>
 nnoremap <leader>gb :Gblame<CR>
 
+
 " =========================
 " setting for buffer switch
 " =========================
@@ -185,6 +186,7 @@ set updatetime=300
 if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
+  set number
 else
   set signcolumn=yes
 endif
@@ -210,12 +212,6 @@ if exists('*complete_info')
   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-" Use <c-l> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <C-l> coc#refresh()
-else
-  inoremap <silent><expr> <C-l> coc#refresh()
 endif
 
 " Use K to show documentation in preview window.
