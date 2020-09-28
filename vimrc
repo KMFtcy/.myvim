@@ -32,6 +32,8 @@ set scrolloff=15
 set tabstop=4
 set shiftwidth=4
 
+set updatetime=100
+
 
 " =========================
 " Plugin list
