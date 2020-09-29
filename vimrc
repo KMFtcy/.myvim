@@ -62,8 +62,6 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'airblade/vim-gitgutter'
-
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()
@@ -174,7 +172,7 @@ noremap <C-w>w :bdelete<CR>
 " =========================
 " setting for coc.nvim
 " =========================
-let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh' ]
+let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-yank', 'coc-git']
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -263,13 +261,34 @@ map t <Plug>(easymotion-s)
 
 
 " =========================
-" setting for gitgutter
+" setting for coc-git
 " =========================
-let g:gitgutter_highlight_lines = 1
-let g:gitgutter_map_keys = 0
-nnoremap ]c <Plug>(GitGutterNextHunk)
-nnoremap [c <Plug>(GitGutterPrevHunk)
-nnoremap <leader>gf :GitGutterFold<CR>
+" navigate chunks of current buffer
+nmap <leader>gp <Plug>(coc-git-prevchunk)
+nmap <leader>gn <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap <leader>gd <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap <leader>gc <Plug>(coc-git-commit)
+
+
+" =========================
+" setting for coc-yank
+" =========================
+nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent> <leader><leader>yc  :CocCommand yank.clean<cr>
+
+
+" =========================
+" setting for coc-highlight
+" =========================
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+" =========================
+" setting for coc-list
+" =========================
+nnoremap <silent> <leader>l :<C-u>CocList<CR>
 
 
 " =========================
