@@ -51,7 +51,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'tpope/vim-fugitive'
 
-Plug 'tomasiser/vim-code-dark'
+Plug 'dracula/vim', { 'as': 'dracula'  }
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -276,4 +276,4 @@ nnoremap <leader>gf :GitGutterFold<CR>
 " 设置主题
 " =========================
 set termguicolors
-colorscheme codedark
+colorscheme dracula 
