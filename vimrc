@@ -45,9 +45,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }
 Plug 'ludovicchabant/vim-gutentags'
 
-Plug 'preservim/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'kristijanhusak/defx-icons'
 
 Plug 'tpope/vim-fugitive'
 
@@ -136,29 +141,51 @@ let g:gutentags_auto_add_gtags_cscope = 0
 " =========================
 " setting for nerdtree and nerdtree-tabs
 " =========================
-noremap <leader>e :NERDTreeMirrorToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:nerdtree_tabs_autofind=1
-let NERDTreeShowLineNumbers=1
-" let NERDTreeAutoCenter=1
-let NERDTreeShowBookmarks=1
-" let g:NERDTreeGitStatusIndicatorMapCustom = {
-" \ "Modified" : "*",
-" \ "Staged" : "",
-" \ "Untracked" : "",
-" \ "Renamed" : "",
-" \ "Unmerged" : "═",
-" \ "Deleted" : "",
-" \ "Dirty" : "",
-" \ "Clean" : "︎",
-" \ "Unknown" : "?"
-" \}
+
+" update defx status automatically when changing file
+autocmd BufWritePost * call defx#redraw()
+ nnoremap <silent><buffer><expr> > defx#do_action('resize',
+ \ defx#get_context().winwidth + 10)
+ nnoremap <silent><buffer><expr> < defx#do_action('resize',
+ \ defx#get_context().winwidth - 10)
+
+nmap <space>e :Defx -split=vertical -winwidth=50 -direction=toplef `expand('%:p:h')` -search=`expand('%:p')` -columns=icons:indent:filename:type<CR>
+
+let g:defx_icons_enable_syntax_highlight = 1
+let g:defx_icons_column_length = 1
+let g:defx_icons_directory_icon = ''
+let g:defx_icons_mark_icon = '*'
+let g:defx_icons_copy_icon = ''
+let g:defx_icons_move_icon = ''
+let g:defx_icons_parent_icon = ''
+let g:defx_icons_default_icon = ''
+let g:defx_icons_directory_symlink_icon = ''
+" Options below are applicable only when using "tree" feature
+let g:defx_icons_root_opened_tree_icon = ''
+let g:defx_icons_nested_opened_tree_icon = ''
+let g:defx_icons_nested_closed_tree_icon = ''
+"  noremap <leader>e :NERDTreeMirrorToggle<CR> let g:nerdtree_tabs_open_on_console_startup=1
+" let g:nerdtree_tabs_autofind=1
+" let NERDTreeShowLineNumbers=1
+" " let NERDTreeAutoCenter=1
+" let NERDTreeShowBookmarks=1
+" " let g:NERDTreeGitStatusIndicatorMapCustom = {
+" " \ "Modified" : "*",
+" " \ "Staged" : "",
+" " \ "Untracked" : "",
+" " \ "Renamed" : "",
+" " \ "Unmerged" : "═",
+" " \ "Deleted" : "",
+" " \ "Dirty" : "",
+" " \ "Clean" : "︎",
+" " \ "Unknown" : "?"
+" " \}
 
 " =========================
 " setting for git related plugin
 " =========================
-nnoremap <leader>gl :tabe<CR>:-tabmove<CR>:NERDTreeClose<CR>:term ++curwin ++close lazygit<CR>
-nnoremap <leader>gb :NERDTreeClose<CR>:Gblame<CR>
+nnoremap <leader>gl :tabe<CR>:-tabmove<CR>:term ++curwin ++close lazygit<CR>
+nnoremap <leader>gb :Gblame<CR>
 
 
 " =========================
@@ -172,7 +199,7 @@ noremap <C-w>w :bdelete<CR>
 " =========================
 " setting for coc.nvim
 " =========================
-let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-yank', 'coc-git', 'coc-yaml', 'coc-python', 'coc-jedi', 'coc-ci', 'coc-snippets']
+let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-yank', 'coc-git', 'coc-yaml', 'coc-python', 'coc-jedi', 'coc-ci', 'coc-snippets', 'coc-explorer']
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
