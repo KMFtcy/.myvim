@@ -172,7 +172,7 @@ noremap <C-w>w :bdelete<CR>
 " =========================
 " setting for coc.nvim
 " =========================
-let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-yank', 'coc-git']
+let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-yank', 'coc-git', 'coc-yaml', 'coc-python', 'coc-jedi', 'coc-ci']
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
