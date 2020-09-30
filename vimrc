@@ -312,6 +312,9 @@ nmap <leader>gn <Plug>(coc-git-nextchunk)
 nmap <leader>gd <Plug>(coc-git-chunkinfo)
 " show commit contains current position
 nmap <leader>gc <Plug>(coc-git-commit)
+nmap <leader>gs :CocCommand git.chunkStage<CR>
+" undo current change
+nmap <leader>gu :CocCommand git.chunkUndo<CR>
 
 
 " =========================
