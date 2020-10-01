@@ -32,7 +32,7 @@ set scrolloff=15
 set tabstop=4
 set shiftwidth=4
 
-set updatetime=100
+set updatetime=400
 
 
 " =========================
@@ -43,7 +43,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }
-Plug 'ludovicchabant/vim-gutentags'
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -75,12 +74,10 @@ call plug#end()
 " =========================
 " some basic mappings
 " =========================
-nnoremap <C-s> :w<CR>
-nnoremap <C-q> :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>t :top terminal<CR>
-inoremap <C-d> <ESC>
-vnoremap <C-d> <ESC>
 
 
 " =========================
