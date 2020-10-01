@@ -204,6 +204,10 @@ set shortmess+=c
 " TextEdit might fail if hidden is not set.
 set hidden
 
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
