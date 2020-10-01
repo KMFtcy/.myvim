@@ -84,6 +84,7 @@ nnoremap <leader>t :top terminal<CR>
 " setting for searching shortcut
 " =========================
 nnoremap <leader>fa :Leaderf rg<CR> 
+nnoremap <leader>fb :Leaderf buffer<CR> 
 nnoremap <leader>ff :Leaderf file<CR> 
 nnoremap <leader>fl :Leaderf line<CR>
 vnoremap <leader>fa y:Leaderf rg <C-r>"<CR>
@@ -188,9 +189,9 @@ nnoremap <leader>gb :Gblame<CR>
 " =========================
 " setting for buffer switch
 " =========================
-noremap <C-j> :bnext<CR>
-noremap <C-k> :bprev<CR>
-noremap <C-w>w :bdelete<CR>
+noremap <leader>bn :bnext<CR>
+noremap <leader>bp :bprev<CR>
+noremap <leader>bd :bdelete<CR>
 
 
 " =========================
