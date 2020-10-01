@@ -45,6 +45,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }
 
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 Plug 'liuchengxu/vista.vim'
 
 if has('nvim')
@@ -81,7 +82,7 @@ call plug#end()
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
-nnoremap <leader>t :top terminal<CR>
+nnoremap <leader>tt :top terminal<CR>
 
 
 " =========================
@@ -109,7 +110,6 @@ noremap <C-w>o :tabe %<CR>
 " setting for gtags and vim-gutentags
 " =========================
 set tags=./.tags;,.tags
-let g:gutentags_define_advanced_commands = 1
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
 
@@ -141,6 +141,12 @@ let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
 " 禁用 gutentags 自动加载 gtags 数据库的行为
 let g:gutentags_auto_add_gtags_cscope = 0
+
+" change focus to quickfix window after search (optional).
+let g:gutentags_plus_switch = 1
+
+" disable gutentags_plus default map
+let g:gutentags_plus_nomap = 1
 
 
 " =========================
@@ -184,6 +190,8 @@ let g:vista#renderer#icons = {
 \   "function": "\uf794",
 \   "variable": "\uf71b",
 \  }
+
+nnoremap <leader>tp :Vista!!<CR>
 
 " =========================
 " setting for Defx 
