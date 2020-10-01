@@ -51,6 +51,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 
 Plug 'tpope/vim-fugitive'
@@ -104,80 +105,80 @@ noremap <C-w>o :tabe %<CR>
 " =========================
 " setting for gtags and vim-gutentags
 " =========================
-let $GTAGSLABEL = 'native-pygments'
-let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
-" gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名
-let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
-
-" 所生成的数据文件的名称
-let g:gutentags_ctags_tagfile = '.tags'
-
-" 同时开启 ctags 和 gtags 支持：
-let g:gutentags_modules = []
-if executable('ctags')
-	let g:gutentags_modules += ['ctags']
-endif
-if executable('gtags-cscope') && executable('gtags')
-	let g:gutentags_modules += ['gtags_cscope']
-endif
-
-" 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-
-" 配置 ctags 的参数，老的 Exuberant-ctags 不能有 --extra=+q，注意
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-
-" 如果使用 universal ctags 需要增加下面一行，老的 Exuberant-ctags 不能加下一行
-let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
-
-" 禁用 gutentags 自动加载 gtags 数据库的行为
-let g:gutentags_auto_add_gtags_cscope = 0
-
 
 " =========================
-" setting for nerdtree and nerdtree-tabs
+" setting for Defx 
 " =========================
+nnoremap <silent> <leader>ee
+            \ :<C-u>Defx -toggle -buffer-name=tab`tabpagenr()` <CR>
+nnoremap <silent> <leader>ea
+            \ :<C-u>Defx -buffer-name=tab`tabpagenr()` -toggle -search=`expand('%:p')`<CR>
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+    " Define mappings
+    nnoremap <silent><buffer><expr> <CR>
+                \ defx#is_directory() ? 
+                \ defx#do_action('open_or_close_tree') : 
+                \ defx#do_action('multi', ['drop'])
+    nnoremap <silent><buffer><expr> c
+                \ defx#do_action('copy')
+    nnoremap <silent><buffer><expr> m
+                \ defx#do_action('move')
+    nnoremap <silent><buffer><expr> p
+                \ defx#do_action('paste')
+    nnoremap <silent><buffer><expr> i
+                \ defx#do_action('multi',[['drop','split']])
+    nnoremap <silent><buffer><expr> N
+                \ defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> n
+                \ defx#do_action('new_file')
+    nnoremap <silent><buffer><expr> d
+                \ defx#do_action('remove')
+    nnoremap <silent><buffer><expr> r
+                \ defx#do_action('rename')
+   nnoremap <silent><buffer><expr> !
+			   \ defx#do_action('execute_command')
+   nnoremap <silent><buffer><expr> yy
+               \ defx#do_action('yank_path')
+   nnoremap <silent><buffer><expr> q
+			   \ defx#do_action('quit')
+    nnoremap <silent><buffer><expr> <Space>
+                \ defx#do_action('toggle_select') . 'j'
+    nnoremap <silent><buffer><expr> *
+                \ defx#do_action('toggle_select_all')
+    nnoremap <silent><buffer><expr> j
+                \ line('.') == line('$') ? 'gg' : 'j'
+    nnoremap <silent><buffer><expr> k
+                \ line('.') == 1 ? 'G' : 'k'
+    nnoremap <silent><buffer><expr> <C-l>
+                \ defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> <C-g>
+                \ defx#do_action('print')
+   nnoremap <silent><buffer><expr> ~
+			   \ defx#do_action('change_vim_cwd')
+endfunction 
+call defx#custom#option('_', {
+            \ 'columns': 'indent:git:icons:filename:type',
+            \ 'winwidth': 35,
+            \ 'split': 'vertical',
+            \ 'direction': 'topleft',
+            \ 'show_ignored_files': 0,
+            \ 'root_marker': '≡ ',
+            \ 'ignored_files':
+            \     '.mypy_cache,.pytest_cache,.git,.hg,.svn,.stversions'
+            \   . ',__pycache__,.sass-cache,*.egg-info,.DS_Store,*.pyc,*.swp'
+            \ })
 
-" update defx status automatically when changing file
-autocmd BufWritePost * call defx#redraw()
- nnoremap <silent><buffer><expr> > defx#do_action('resize',
- \ defx#get_context().winwidth + 10)
- nnoremap <silent><buffer><expr> < defx#do_action('resize',
- \ defx#get_context().winwidth - 10)
-
-nmap <space>e :Defx -split=vertical -winwidth=50 -direction=toplef `expand('%:p:h')` -search=`expand('%:p')` -columns=icons:indent:filename:type<CR>
-
-let g:defx_icons_enable_syntax_highlight = 1
-let g:defx_icons_column_length = 1
-let g:defx_icons_directory_icon = ''
-let g:defx_icons_mark_icon = '*'
-let g:defx_icons_copy_icon = ''
-let g:defx_icons_move_icon = ''
-let g:defx_icons_parent_icon = ''
-let g:defx_icons_default_icon = ''
-let g:defx_icons_directory_symlink_icon = ''
-" Options below are applicable only when using "tree" feature
-let g:defx_icons_root_opened_tree_icon = ''
-let g:defx_icons_nested_opened_tree_icon = ''
-let g:defx_icons_nested_closed_tree_icon = ''
-"  noremap <leader>e :NERDTreeMirrorToggle<CR> let g:nerdtree_tabs_open_on_console_startup=1
-" let g:nerdtree_tabs_autofind=1
-" let NERDTreeShowLineNumbers=1
-" " let NERDTreeAutoCenter=1
-" let NERDTreeShowBookmarks=1
-" " let g:NERDTreeGitStatusIndicatorMapCustom = {
-" " \ "Modified" : "*",
-" " \ "Staged" : "",
-" " \ "Untracked" : "",
-" " \ "Renamed" : "",
-" " \ "Unmerged" : "═",
-" " \ "Deleted" : "",
-" " \ "Dirty" : "",
-" " \ "Clean" : "︎",
-" " \ "Unknown" : "?"
-" " \}
+call defx#custom#column('git', 'indicators', {
+  \ 'Modified'  : '✹',
+  \ 'Staged'    : '✚',
+  \ 'Untracked' : '✭',
+  \ 'Renamed'   : '➜',
+  \ 'Unmerged'  : '═',
+  \ 'Ignored'   : '☒',
+  \ 'Deleted'   : '✖',
+  \ 'Unknown'   : '?'
+  \ })
 
 " =========================
 " setting for git related plugin
@@ -197,7 +198,7 @@ noremap <leader>bd :bdelete<CR>
 " =========================
 " setting for coc.nvim
 " =========================
-let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-yank', 'coc-git', 'coc-yaml', 'coc-python', 'coc-ci', 'coc-snippets', 'coc-explorer']
+let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-yank', 'coc-git', 'coc-yaml', 'coc-python', 'coc-ci', 'coc-snippets']
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
