@@ -98,6 +98,9 @@ vnoremap <leader>fl y:Leaderf line --input <C-r>"<CR>
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_CacheDirectory = expand('~')
+let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.project'] 
+let g:Lf_WorkingDirectoryMode = 'ac'
 
 
 " =========================
