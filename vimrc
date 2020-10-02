@@ -191,7 +191,7 @@ let g:vista#renderer#icons = {
 \   "variable": "\uf71b",
 \  }
 
-nnoremap <leader>tp :Vista!!<CR>
+nnoremap <leader>tl :Vista!!<CR>
 
 " =========================
 " setting for Defx 
