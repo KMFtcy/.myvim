@@ -278,8 +278,17 @@ nnoremap <leader>gb :Gblame<CR>
 
 
 " =========================
+" setting for tab switch
+" =========================
+noremap <S-t> :tabNext<CR>
+noremap <S-p>t :tabprevious<CR>
+
+
+" =========================
 " setting for buffer switch
 " =========================
+noremap <S-b> :bnext<CR>
+noremap <S-p>b :bprev<CR>
 noremap <leader>bn :bnext<CR>
 noremap <leader>bp :bprev<CR>
 noremap <leader>bd :bdelete<CR>
