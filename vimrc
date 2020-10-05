@@ -135,11 +135,11 @@ let g:gutentags_ctags_tagfile = '.tags'
 
 " 同时开启 ctags 和 gtags 支持：
 let g:gutentags_modules = []
-if executable('ctags')
-	let g:gutentags_modules += ['ctags']
-endif
 if executable('gtags-cscope') && executable('gtags')
 	let g:gutentags_modules += ['gtags_cscope']
+endif
+if executable('ctags')
+	let g:gutentags_modules += ['ctags']
 endif
 
 " 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
