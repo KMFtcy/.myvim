@@ -93,25 +93,27 @@ nnoremap <leader>fa :Leaderf rg<CR>
 nnoremap <leader>fb :Leaderf buffer<CR> 
 nnoremap <leader>ff :Leaderf file<CR> 
 nnoremap <leader>fl :Leaderf line<CR>
+nnoremap <leader>ft :Leaderf tag<CR>
 vnoremap <leader>fa y:Leaderf rg <C-r>"<CR>
 vnoremap <leader>ff y:Leaderf file --input <C-r>"<CR> 
 vnoremap <leader>fl y:Leaderf line --input <C-r>"<CR>
+vnoremap <leader>ft y:Leaderf tag --input <C-r>"<CR>
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
-let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_GtagsGutentags = 1
 let g:Lf_CacheDirectory = expand('~')
 let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.project'] 
 let g:Lf_WorkingDirectoryMode = 'ac'
-let g:Lf_GtagsGutentags = 1
-let g:Lf_GtagsAutoUpdate = 1
-let g:Lf_GtagsSource = 2
-let g:Lf_GtagsfilesCmd = {
-            \ '.git': 'git ls-files --recurse-submodules',
-            \ '.hg': 'hg files',
-            \ 'default': 'rg --no-messages --files'
-            \}
+" let g:Lf_GtagsAutoUpdate = 1
+" let g:Lf_GtagsSource = 2
+" let g:Lf_GtagsfilesCmd = {
+            " \ '.git': 'git ls-files --recurse-submodules',
+            " \ '.hg': 'hg files',
+            " \ 'default': 'rg --no-messages --files'
+            " \}
 let g:Lf_Gtagslabel = "native-pygments"
-let g:Lf_Gtagsconfg = "/usr/local/share/gtags/gtags.conf"
+let g:Lf_Gtagsconf = "/usr/local/share/gtags/gtags.conf"
 
 
 " =========================
