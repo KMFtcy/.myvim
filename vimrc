@@ -46,6 +46,7 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh'  }
 
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
+Plug 'skywind3000/vim-preview'
 Plug 'liuchengxu/vista.vim'
 
 if has('nvim')
@@ -101,6 +102,17 @@ let g:Lf_GtagsAutoGenerate = 1
 let g:Lf_CacheDirectory = expand('~')
 let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.project'] 
 let g:Lf_WorkingDirectoryMode = 'ac'
+let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_GtagsGutentags = 1
+let g:Lf_GtagsAutoUpdate = 1
+let g:Lf_GtagsSource = 2
+let g:Lf_GtagsfilesCmd = {
+            \ '.git': 'git ls-files --recurse-submodules',
+            \ '.hg': 'hg files',
+            \ 'default': 'rg --no-messages --files'
+            \}
+let g:Lf_Gtagslabel = "native-pygments"
+let g:Lf_Gtagsconfg = "/usr/local/share/gtags/gtags.conf"
 
 
 " =========================
@@ -132,12 +144,12 @@ if executable('gtags-cscope') && executable('gtags')
 endif
 
 " 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
-let g:gutentags_cache_dir = expand('~/.cache/tags')
+let g:gutentags_cache_dir = expand(g:Lf_CacheDirectory.'/.cache/tags')
 
 " 配置 ctags 的参数，老的 Exuberant-ctags 不能有 --extra=+q，注意
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxc']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+pxc']
 
 " 如果使用 universal ctags 需要增加下面一行，老的 Exuberant-ctags 不能加下一行
 let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
@@ -151,6 +163,31 @@ let g:gutentags_plus_switch = 1
 " disable gutentags_plus default map
 let g:gutentags_plus_nomap = 1
 
+  " :GscopeFind {querytype} {name}
+" <
+" Perform a cscope search and take care of database switching before searching.
+
+" '{querytype}' corresponds to the actual cscope line interface numbers as well
+" as default nvi commands:
+" >
+  " 0 or s: Find this symbol
+  " 1 or g: Find this definition
+  " 2 or d: Find functions called by this function
+  " 3 or c: Find functions calling this function
+  " 4 or t: Find this text string
+  " 6 or e: Find this egrep pattern
+  " 7 or f: Find this file
+  " 8 or i: Find files #including this file
+  " 9 or a: Find places where this symbol is assigned a value
+
+nnoremap <silent> <leader>ts :GscopeFind s <C-R><C-W><cr>
+vnoremap <silent> <leader>ts y:GscopeFind s <C-R>"<cr>
+" the following two keymaps implements: switch to quickfix window and press p,
+" the item under cursor will be displayed in the preview window immediately,
+" When you finished, just use P (upper case) or CTRL+W z to close the preview
+" window
+autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
 " =========================
 " setting for vista
