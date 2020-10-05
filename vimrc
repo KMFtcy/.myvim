@@ -102,7 +102,6 @@ let g:Lf_GtagsAutoGenerate = 1
 let g:Lf_CacheDirectory = expand('~')
 let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.project'] 
 let g:Lf_WorkingDirectoryMode = 'ac'
-let g:Lf_GtagsAutoGenerate = 1
 let g:Lf_GtagsGutentags = 1
 let g:Lf_GtagsAutoUpdate = 1
 let g:Lf_GtagsSource = 2
