@@ -113,13 +113,6 @@ let g:Lf_GtagsGutentags = 1
 let g:Lf_CacheDirectory = expand('~')
 let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.project'] 
 let g:Lf_WorkingDirectoryMode = 'ac'
-" let g:Lf_GtagsAutoUpdate = 1
-" let g:Lf_GtagsSource = 2
-" let g:Lf_GtagsfilesCmd = {
-	" \ '.git': 'git ls-files --recurse-submodules',
-	" \ '.hg': 'hg files',
-	" \ 'default': 'rg --no-messages --files'
-	" \}
 let g:Lf_Gtagslabel = "native-pygments"
 let g:Lf_Gtagsconf = "/usr/local/share/gtags/gtags.conf"
 
@@ -229,12 +222,6 @@ let g:gutentags_plus_switch = 1
 let g:gutentags_plus_nomap = 1
 
   " :GscopeFind {querytype} {name}
-" <
-" Perform a cscope search and take care of database switching before searching.
-
-" '{querytype}' corresponds to the actual cscope line interface numbers as well
-" as default nvi commands:
-" >
   " 0 or s: Find this symbol
   " 1 or g: Find this definition
   " 2 or d: Find functions called by this function
@@ -244,7 +231,6 @@ let g:gutentags_plus_nomap = 1
   " 7 or f: Find this file
   " 8 or i: Find files #including this file
   " 9 or a: Find places where this symbol is assigned a value
-
 nnoremap <silent> <leader>ts :GscopeFind s <C-R><C-W><cr>
 vnoremap <silent> <leader>ts y:GscopeFind s <C-R>"<cr>
 " the following two keymaps implements: switch to quickfix window and press p,
@@ -482,31 +468,8 @@ nnoremap <silent> <leader>ll :<C-u>CocList<CR>
 " Show all diagnostics.
 nnoremap <silent><nowait> <leader>la  :<C-u>CocList diagnostics<cr>
 
-
-" =========================
 " setting for coc-snipaste
-" =========================
 let g:coc_snippet_next = '<tab>'
-
-" =========================
-" setting for airline
-" =========================
-let g:airline#extensions#tabline#enabled = 1
-
-
-" =========================
-" setting for nerdcommenter
-" =========================
-let g:NERDSpaceDelims=1
-
-
-" =========================
-" setting for easymotion
-" =========================
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_do_mapping = 0 " Disable default mappings"
-" Jump to anywhere with only `t{char}{target}`
-map ; <Plug>(easymotion-s)
 
 
 " =========================
@@ -535,6 +498,27 @@ nnoremap <silent> <leader><leader>yc  :CocCommand yank.clean<cr>
 " setting for coc-highlight
 " =========================
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+" =========================
+" setting for airline
+" =========================
+let g:airline#extensions#tabline#enabled = 1
+
+
+" =========================
+" setting for nerdcommenter
+" =========================
+let g:NERDSpaceDelims=1
+
+
+" =========================
+" setting for easymotion
+" =========================
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_do_mapping = 0 " Disable default mappings"
+" Jump to anywhere with only `t{char}{target}`
+map ; <Plug>(easymotion-s)
 
 
 " =========================
