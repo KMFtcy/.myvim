@@ -80,6 +80,8 @@ Plug 'francoiscabrol/ranger.vim'
 
 Plug 'tpope/vim-surround'
 
+Plug 'Yggdroot/indentLine'
+
 call plug#end()
 
 "
@@ -114,10 +116,10 @@ let g:Lf_WorkingDirectoryMode = 'ac'
 " let g:Lf_GtagsAutoUpdate = 1
 " let g:Lf_GtagsSource = 2
 " let g:Lf_GtagsfilesCmd = {
-            " \ '.git': 'git ls-files --recurse-submodules',
-            " \ '.hg': 'hg files',
-            " \ 'default': 'rg --no-messages --files'
-            " \}
+	" \ '.git': 'git ls-files --recurse-submodules',
+	" \ '.hg': 'hg files',
+	" \ 'default': 'rg --no-messages --files'
+	" \}
 let g:Lf_Gtagslabel = "native-pygments"
 let g:Lf_Gtagsconf = "/usr/local/share/gtags/gtags.conf"
 
@@ -126,6 +128,14 @@ let g:Lf_Gtagsconf = "/usr/local/share/gtags/gtags.conf"
 " setting for windows managemet 
 " =========================
 noremap <C-w>o :tabe %<CR>
+
+
+" =========================
+" setting for indent guide
+" =========================
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" let g:indentLine_char = '¦'
+let g:indentLine_enabled = 1
 
 
 " =========================
@@ -164,7 +174,7 @@ let g:far#mapping = {
 	\ "stoggle_expand_all" : "<space>",
 	\ "quit" : "q",
 	\ "stoggle_exclude" : "f",
-	\ "stoggle_exclude_all" : "F",
+	\  "stoggle_exclude_all" : "F",
 	\ "open_preview" : "p",
 	\ "close_preview" : "P",
 	\ }
