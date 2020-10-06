@@ -131,6 +131,12 @@ noremap <C-w>o :tabe %<CR>
 
 
 " =========================
+" setting for session management
+" =========================
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_autosave_always = 1
+
+" =========================
 " setting for indent guide
 " =========================
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
@@ -441,11 +447,11 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-        else
-            call CocAction('doHover')
-              endif
-              endfunction
+    execute 'h '.expand('<cword>')
+  else
+	call CocAction('doHover')
+  endif
+endfunction
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location
@@ -464,24 +470,22 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+vmap <leader>ac  <Plug>(coc-codeaction-selected)
+nmap <leader>ac  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>aa  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+nnoremap <silent> <leader>ll :<C-u>CocList<CR>
+" Show all diagnostics.
+nnoremap <silent><nowait> <leader>la  :<C-u>CocList diagnostics<cr>
 
 
 " =========================
 " setting for coc-snipaste
 " =========================
-" inoremap <silent><expr> <TAB>
-      " \ pumvisible() ? coc#_select_confirm() :
-      " \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      " \ <SID>check_back_space() ? "\<TAB>" :
-      " \ coc#refresh()
-
-" function! s:check_back_space() abort
-  " let col = col('.') - 1
-  " return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-
 let g:coc_snippet_next = '<tab>'
 
 " =========================
@@ -531,12 +535,6 @@ nnoremap <silent> <leader><leader>yc  :CocCommand yank.clean<cr>
 " setting for coc-highlight
 " =========================
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-
-" =========================
-" setting for coc-list
-" =========================
-nnoremap <silent> <leader>l :<C-u>CocList<CR>
 
 
 " =========================
