@@ -74,6 +74,8 @@ Plug 'scrooloose/nerdcommenter'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'brooth/far.vim'
+
 call plug#end()
 
 "
@@ -120,6 +122,40 @@ let g:Lf_Gtagsconf = "/usr/local/share/gtags/gtags.conf"
 " setting for windows managemet 
 " =========================
 noremap <C-w>o :tabe %<CR>
+
+
+" =========================
+" setting for Far
+" =========================
+set lazyredraw            " improve scrolling performance when navigating through large results
+set regexpengine=1        " use old regexp engine
+set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
+
+" shortcut for far.vim find
+" nnoremap <silent>   :Farf<cr>
+" vnoremap <silent> <Find-Shortcut>  :Farf<cr>
+
+" shortcut for far.vim replace
+nnoremap <silent> <leader>s  :Farr<cr>
+vnoremap <silent> <leader>s  :Farr<cr>
+
+" enable undo in far
+let g:far#enable_undo=1
+
+let g:far#source='rg'
+
+let g:far#preview_window_height=20
+
+let g:far#collapse_result=1
+
+let g:far#mapping = {
+	\ "stoggle_expand_all" : "<space>",
+	\ "quit" : "q",
+	\ "stoggle_exclude" : "f",
+	\ "stoggle_exclude_all" : "F",
+	\ "open_preview" : "p",
+	\ "close_preview" : "P",
+	\ }
 
 
 " =========================
