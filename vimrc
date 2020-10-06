@@ -78,6 +78,8 @@ Plug 'brooth/far.vim'
 
 Plug 'francoiscabrol/ranger.vim'
 
+Plug 'tpope/vim-surround'
+
 call plug#end()
 
 "
