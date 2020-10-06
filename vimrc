@@ -182,7 +182,6 @@ let g:gutentags_plus_nomap = 1
   " 9 or a: Find places where this symbol is assigned a value
 
 nnoremap <silent> <leader>ts :GscopeFind s <C-R><C-W><cr>
-nnoremap <silent> <leader>tt :GscopeFind t <C-R><C-W><cr>
 vnoremap <silent> <leader>ts y:GscopeFind s <C-R>"<cr>
 " the following two keymaps implements: switch to quickfix window and press p,
 " the item under cursor will be displayed in the preview window immediately,
