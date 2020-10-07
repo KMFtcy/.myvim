@@ -24,14 +24,12 @@ set laststatus=2
 set cursorline
 set linebreak
 set encoding=utf-8
-
 set autoindent
 set showmode
 set relativenumber
 set scrolloff=15
 set tabstop=2
 set shiftwidth=2
-
 set updatetime=400
 
 
@@ -84,7 +82,7 @@ Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
-"
+
 " =========================
 " some basic mappings
 " =========================
@@ -151,24 +149,18 @@ let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 set lazyredraw            " improve scrolling performance when navigating through large results
 set regexpengine=1        " use old regexp engine
 set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
-
 " shortcut for far.vim find
 " nnoremap <silent>   :Farf<cr>
 " vnoremap <silent> <Find-Shortcut>  :Farf<cr>
-
 " shortcut for far.vim replace
 nnoremap <silent> <leader>s  :Farr<cr>
 vnoremap <silent> <leader>s  :Farr<cr>
-
 " enable undo in far
 let g:far#enable_undo=1
-
+" some extra setting
 let g:far#source='rg'
-
 let g:far#preview_window_height=20
-
 let g:far#collapse_result=1
-
 let g:far#mapping = {
 	\ "stoggle_expand_all" : "<space>",
 	\ "quit" : "q",
@@ -185,13 +177,10 @@ let g:far#mapping = {
 set tags=./.tags;,.tags
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/local/share/gtags/gtags.conf'
-
 " gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
-
 " 所生成的数据文件的名称
 let g:gutentags_ctags_tagfile = '.tags'
-
 " 同时开启 ctags 和 gtags 支持：
 let g:gutentags_modules = []
 if executable('gtags-cscope') && executable('gtags')
@@ -200,27 +189,20 @@ endif
 if executable('ctags')
 	let g:gutentags_modules += ['ctags']
 endif
-
 " 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
 let g:gutentags_cache_dir = expand(g:Lf_CacheDirectory.'/.cache/tags')
-
 " 配置 ctags 的参数，老的 Exuberant-ctags 不能有 --extra=+q，注意
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxc']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+pxc']
-
 " 如果使用 universal ctags 需要增加下面一行，老的 Exuberant-ctags 不能加下一行
 let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
-
 " 禁用 gutentags 自动加载 gtags 数据库的行为
 let g:gutentags_auto_add_gtags_cscope = 0
-
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
-
 " disable gutentags_plus default map
 let g:gutentags_plus_nomap = 1
-
   " :GscopeFind {querytype} {name}
   " 0 or s: Find this symbol
   " 1 or g: Find this definition
@@ -240,6 +222,7 @@ vnoremap <silent> <leader>ts y:GscopeFind s <C-R>"<cr>
 autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
 autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
+
 " =========================
 " setting for vista
 " =========================
@@ -248,11 +231,9 @@ autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 " e.g., more compact: ["▸ ", ""]
 " Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-
 " Executive used when opening vista sidebar without specifying it.
 " See all the avaliable executives via `:echo g:vista#executives`.
 let g:vista_default_executive = 'ctags'
-
 " Set the executive for some filetypes explicitly. Use the explicit executive
 " instead of the default one for these filetypes when using `:Vista` without
 " specifying the executive.
@@ -260,29 +241,26 @@ let g:vista_executive_for = {
   \ 'cpp': 'vim_lsp',
   \ 'php': 'vim_lsp',
   \ }
-
 " Declare the command including the executable and options used to generate ctags output
 " for some certain filetypes.The file path will be appened to your custom command.
 " For example:
 let g:vista_ctags_cmd = {
       \ 'haskell': 'hasktags -x -o - -c',
       \ }
-
 " To enable fzf's preview window set g:vista_fzf_preview.
 " The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
 " For example:
 let g:vista_fzf_preview = ['right:50%']
-
 " Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
 let g:vista#renderer#enable_icon = 1
-
 " The default icons can't be suitable for all the filetypes, you can extend it as you wish.
 let g:vista#renderer#icons = {
 \   "function": "\uf794",
 \   "variable": "\uf71b",
 \  }
-
+" set shortcut
 nnoremap <leader>tl :Vista!!<CR>
+
 
 " =========================
 " setting for Defx 
@@ -346,7 +324,6 @@ call defx#custom#option('_', {
             \     '.mypy_cache,.pytest_cache,.git,.hg,.svn,.stversions'
             \   . ',__pycache__,.sass-cache,*.egg-info,.DS_Store,*.pyc,*.swp'
             \ })
-
 call defx#custom#column('git', 'indicators', {
   \ 'Modified'  : '✹',
   \ 'Staged'    : '✚',
@@ -357,6 +334,7 @@ call defx#custom#column('git', 'indicators', {
   \ 'Deleted'   : '✖',
   \ 'Unknown'   : '?'
   \ })
+
 
 " =========================
 " setting for git related plugin
@@ -386,16 +364,13 @@ noremap <leader>bd :bdelete<CR>
 " setting for coc.nvim
 " =========================
 let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-yank', 'coc-git', 'coc-yaml', 'coc-python', 'coc-ci', 'coc-snippets']
-
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 " TextEdit might fail if hidden is not set.
 set hidden
-
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
@@ -404,7 +379,6 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -418,7 +392,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
@@ -427,10 +400,8 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -438,36 +409,31 @@ function! s:show_documentation()
 	call CocAction('doHover')
   endif
 endfunction
-
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location
 " list.
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
-
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 vmap <leader>ac  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction-selected)
-
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>aa  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
-
 nnoremap <silent> <leader>ll :<C-u>CocList<CR>
 " Show all diagnostics.
 nnoremap <silent><nowait> <leader>la  :<C-u>CocList diagnostics<cr>
-
 " setting for coc-snipaste
 let g:coc_snippet_next = '<tab>'
 
@@ -517,12 +483,12 @@ let g:NERDSpaceDelims=1
 " =========================
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_do_mapping = 0 " Disable default mappings"
-" Jump to anywhere with only `t{char}{target}`
+" Jump to anywhere with only `;{char}{target}`
 map ; <Plug>(easymotion-s)
 
 
 " =========================
-" 设置主题
+" set theme
 " =========================
 set termguicolors
 colorscheme dracula 
