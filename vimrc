@@ -438,7 +438,14 @@ nnoremap <silent> <leader>ll :<C-u>CocList<CR>
 nnoremap <silent><nowait> <leader>la  :<C-u>CocList diagnostics<cr>
 " setting for coc-snipaste
 let g:coc_snippet_next = '<tab>'
-
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" Use <c-space> to trigger completion.
+if has('nvim')
+	inoremap <silent><expr> <C-l> coc#refresh()
+else
+	inoremap <silent><expr> <C-l> coc#refresh()
+endif
 
 " =========================
 " setting for coc-git
