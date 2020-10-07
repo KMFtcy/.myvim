@@ -363,7 +363,9 @@ noremap <leader>bd :bdelete<CR>
 " =========================
 " setting for coc.nvim
 " =========================
-let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh', 'coc-yank', 'coc-git', 'coc-yaml', 'coc-python', 'coc-ci', 'coc-snippets']
+let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh',
+			\'coc-yank', 'coc-git', 'coc-yaml', 'coc-python', 'coc-ci',
+			\'coc-snippets', 'coc-prettier']
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 " TextEdit might fail if hidden is not set.
