@@ -266,6 +266,13 @@ autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 " =========================
 " setting for vista
 " =========================
+" 
+" <CR>  - jump to the tag under the cursor.
+" p     - preview the tag under the context via the floating window if it's
+        " avaliable.
+" s     - sort the symbol alphabetically or the location they are declared.
+" q     - close the vista window.
+"
 " How each level is indented and what to prepend.
 " This could make the display more compact or more spacious.
 " e.g., more compact: ["▸ ", ""]
@@ -300,6 +307,14 @@ let g:vista#renderer#icons = {
 \  }
 " set shortcut
 nnoremap <leader>tl :Vista!!<CR>
+
+let g:vista_update_on_text_changed=1
+let g:vista_update_on_text_changed_delay=500
+
+autocmd FileType vista,vista_kind nnoremap <buffer> <silent> \
+					 / :<c-u>call vista#finder#fzf#Run()<CR>
+
+let g:vista_fzf_preview = ['right:50%']
 
 
 " =========================
