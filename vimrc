@@ -89,6 +89,9 @@ Plug 'luochen1990/rainbow'
 
 Plug 'ryanoasis/vim-devicons'
 
+" this plugin help me to support mouse operation and forget paste mode
+Plug 'wincent/terminus'
+
 call plug#end()
 
 
