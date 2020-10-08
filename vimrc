@@ -89,6 +89,8 @@ Plug 'luochen1990/rainbow'
 
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'pechorin/any-jump.vim'
+
 " this plugin help me to support mouse operation and forget paste mode
 Plug 'wincent/terminus'
 
@@ -125,6 +127,16 @@ let g:Lf_RootMarkers = ['.root', '.svn', '.git', '.hg', '.project']
 let g:Lf_WorkingDirectoryMode = 'ac'
 let g:Lf_Gtagslabel = "native-pygments"
 let g:Lf_Gtagsconf = "/usr/local/share/gtags/gtags.conf"
+
+
+" =========================
+" setting for searching shortcut
+" =========================
+let g:any_jump_disable_default_keybindings = 1
+" Normal mode: Jump to definition under cursore
+nnoremap <leader>j :AnyJump<CR>
+" Visual mode: jump to selected text in visual mode
+xnoremap <leader>j :AnyJumpVisual<CR>
 
 
 " =========================
