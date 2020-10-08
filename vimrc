@@ -85,6 +85,8 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'airblade/vim-rooter'
 
+Plug 'luochen1990/rainbow'
+
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -133,6 +135,13 @@ noremap <C-w>o :tabe %<CR>
 " =========================
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 let g:workspace_autosave_always = 1
+
+
+" =========================
+" setting for rainbow
+" =========================
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle"
+
 
 " =========================
 " setting for indent guide
