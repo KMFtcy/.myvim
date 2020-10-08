@@ -83,6 +83,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'Yggdroot/indentLine'
 
+Plug 'airblade/vim-rooter'
+
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -146,6 +148,14 @@ let g:indentLine_enabled = 1
 nnoremap <leader>er :RangerWorkingDirectoryExistingOrNewTab<CR>
 " let g:ranger_replace_netrw = 1
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+
+
+" =========================
+" setting for vim-rooter
+" =========================
+let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
+let g:rooter_resolve_links = 1
+" let g:rooter_silent_chdir = 1
 
 
 " =========================
