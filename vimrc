@@ -83,6 +83,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'Yggdroot/indentLine'
 
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 
