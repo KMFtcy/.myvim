@@ -404,7 +404,7 @@ noremap <leader>bd :bdelete<CR>
 " =========================
 let g:coc_global_extensions = [ 'coc-json', 'coc-vimlsp', 'coc-sh',
 			\'coc-yank', 'coc-git', 'coc-yaml', 'coc-python', 'coc-ci',
-			\'coc-snippets', 'coc-prettier', 'coc-go']
+			\'coc-snippets', 'coc-prettier', 'coc-go', 'coc-actions']
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 " TextEdit might fail if hidden is not set.
