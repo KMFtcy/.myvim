@@ -94,6 +94,8 @@ Plug 'pechorin/any-jump.vim'
 " this plugin help me to support mouse operation and forget paste mode
 Plug 'wincent/terminus'
 
+Plug 'troydm/zoomwintab.vim'
+
 call plug#end()
 
 
