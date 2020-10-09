@@ -311,8 +311,8 @@ nnoremap <leader>tl :Vista!!<CR>
 let g:vista_update_on_text_changed=1
 let g:vista_update_on_text_changed_delay=500
 
-autocmd FileType vista,vista_kind nnoremap <buffer> <silent> \
-					 / :<c-u>call vista#finder#fzf#Run()<CR>
+autocmd FileType vista,vista_kind nnoremap <buffer> <silent> 
+			\ / :<c-u>call vista#finder#fzf#Run()<CR>
 
 let g:vista_fzf_preview = ['right:50%']
 
