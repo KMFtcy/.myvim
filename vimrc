@@ -97,6 +97,8 @@ Plug 'wincent/terminus'
 
 Plug 'troydm/zoomwintab.vim'
 
+Plug 'wesQ3/vim-windowswap'
+
 call plug#end()
 
 
@@ -145,6 +147,10 @@ xnoremap <leader>j :AnyJumpVisual<CR>
 " =========================
 " setting for windows managemet 
 " =========================
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>wy :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <leader>wp :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>"
 
 
 " =========================
