@@ -80,6 +80,7 @@ Plug 'brooth/far.vim'
 Plug 'francoiscabrol/ranger.vim'
 
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 Plug 'Yggdroot/indentLine'
 
