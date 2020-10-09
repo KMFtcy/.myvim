@@ -204,8 +204,8 @@ let g:far#collapse_result=1
 let g:far#mapping = {
 	\ "stoggle_expand_all" : "<space>",
 	\ "quit" : "q",
-	\ "stoggle_exclude" : "f",
-	\  "stoggle_exclude_all" : "F",
+	\ "stoggle_exclude" : "a",
+	\  "stoggle_exclude_all" : "A",
 	\ "open_preview" : "p",
 	\ "close_preview" : "P",
 	\ }
