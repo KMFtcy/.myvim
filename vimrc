@@ -438,6 +438,7 @@ let g:coc_global_extensions = [
 			\'coc-snippets',
 			\'coc-prettier',
 			\'coc-go',
+			\'coc-explorer',
 			\'coc-actions']
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
