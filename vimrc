@@ -99,8 +99,9 @@ Plug 'troydm/zoomwintab.vim'
 
 Plug 'wesQ3/vim-windowswap'
 
-" nvim v0.4. 
 Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3'  }
+
+Plug 'dominikduda/vim_current_word'
 
 call plug#end()
 
