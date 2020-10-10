@@ -99,6 +99,9 @@ Plug 'troydm/zoomwintab.vim'
 
 Plug 'wesQ3/vim-windowswap'
 
+" nvim v0.4. 
+Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3'  }
+
 call plug#end()
 
 
@@ -332,7 +335,10 @@ nnoremap <leader>e :<C-u>CocCommand explorer<CR>
 " =========================
 " setting for git related plugin
 " =========================
-nnoremap <leader>gl :tabe<CR>:-tabmove<CR>:term ++curwin ++close lazygit<CR>
+" nnoremap <leader>gl :tabe<CR>:-tabmove<CR>:term ++curwin ++close lazygit<CR>
+let g:lazygit_floating_window_winblend = 0 " transparency of floating window
+let g:lazygit_floating_window_scaling_factor = 0.95 " scaling factor for floating window
+nnoremap <silent> <leader>gl :LazyGit<CR>
 nnoremap <leader>gb :Gblame<CR>
 
 
