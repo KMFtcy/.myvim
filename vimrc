@@ -116,6 +116,35 @@ nnoremap <leader>tt :top terminal<CR>
 
 
 " =========================
+" setting for fold operation
+" =========================
+" comes from https://stackoverflow.com/questions/9403098/is-it-possible-to-jump-to-the-next-closed-fold-in-vim
+function! NextClosedFold(dir)
+    let cmd = 'norm!z' . a:dir
+    let view = winsaveview()
+    let [l0, l, open] = [0, view.lnum, 1]
+    while l != l0 && open
+        exe cmd
+        let [l0, l] = [l, line('.')]
+        let open = foldclosed(l) < 0
+    endwhile
+    if open
+        call winrestview(view)
+    endif
+endfunction
+
+function! RepeatCmd(cmd) range abort
+    let n = v:count < 1 ? 1 : v:count
+    while n > 0
+        exe a:cmd
+        let n -= 1
+    endwhile
+endfunction
+
+nnoremap <silent> <leader>zj :<c-u>call RepeatCmd('call NextClosedFold("j")')<cr>
+nnoremap <silent> <leader>zk :<c-u>call RepeatCmd('call NextClosedFold("k")')<cr>
+
+" =========================
 " setting for searching shortcut
 " =========================
 nnoremap <leader>fa :Leaderf rg<CR> 
