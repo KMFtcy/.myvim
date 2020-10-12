@@ -270,9 +270,9 @@ endif
 " 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
 let g:gutentags_cache_dir = expand(g:Lf_CacheDirectory.'/.cache/tags')
 " 配置 ctags 的参数，老的 Exuberant-ctags 不能有 --extra=+q，注意
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxc']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+pxc']
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extras=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 " 如果使用 universal ctags 需要增加下面一行，老的 Exuberant-ctags 不能加下一行
 let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " 禁用 gutentags 自动加载 gtags 数据库的行为
