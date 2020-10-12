@@ -216,7 +216,7 @@ nnoremap <leader>o :<C-u>RnvimrToggle<CR>
 " =========================
 " setting for vim-rooter
 " =========================
-let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
+let g:rooter_patterns = ['.root','.git', 'Makefile', '*.sln', 'build/env.sh']
 let g:rooter_resolve_links = 1
 " let g:rooter_silent_chdir = 1
 
