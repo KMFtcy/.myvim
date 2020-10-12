@@ -418,6 +418,7 @@ if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
   set number
 else
+  set number
   set signcolumn=yes
 endif
 " Use tab for trigger completion with characters ahead and navigate.
@@ -480,11 +481,7 @@ let g:coc_snippet_next = '<tab>'
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Use <c-space> to trigger completion.
-if has('nvim')
-	inoremap <silent><expr> <C-l> coc#refresh()
-else
-	inoremap <silent><expr> <C-l> coc#refresh()
-endif
+inoremap <silent><expr> <C-l> coc#refresh()
 
 " =========================
 " setting for coc-git
