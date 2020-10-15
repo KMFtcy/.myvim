@@ -602,3 +602,4 @@ map ; <Plug>(easymotion-s)
 " =========================
 set termguicolors
 colorscheme dracula 
+highlight Normal guibg=NONE ctermbg=None
