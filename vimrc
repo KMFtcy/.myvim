@@ -216,7 +216,7 @@ nnoremap <leader>o :<C-u>RnvimrToggle<CR>
 " =========================
 " setting for vim-rooter
 " =========================
-let g:rooter_patterns = ['.git', 'Makefile', '*.sln', 'build/env.sh']
+let g:rooter_patterns = ['.root','.git', 'Makefile', '*.sln', 'build/env.sh']
 let g:rooter_resolve_links = 1
 " let g:rooter_silent_chdir = 1
 
@@ -270,9 +270,9 @@ endif
 " 将自动生成的 ctags/gtags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
 let g:gutentags_cache_dir = expand(g:Lf_CacheDirectory.'/.cache/tags')
 " 配置 ctags 的参数，老的 Exuberant-ctags 不能有 --extra=+q，注意
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxc']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+pxc']
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extras=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 " 如果使用 universal ctags 需要增加下面一行，老的 Exuberant-ctags 不能加下一行
 let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " 禁用 gutentags 自动加载 gtags 数据库的行为
@@ -418,6 +418,7 @@ if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
   set number
 else
+  set number
   set signcolumn=yes
 endif
 " Use tab for trigger completion with characters ahead and navigate.
@@ -480,11 +481,7 @@ let g:coc_snippet_next = '<tab>'
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Use <c-space> to trigger completion.
-if has('nvim')
-	inoremap <silent><expr> <C-l> coc#refresh()
-else
-	inoremap <silent><expr> <C-l> coc#refresh()
-endif
+inoremap <silent><expr> <C-l> coc#refresh()
 
 " =========================
 " setting for coc-git
@@ -605,3 +602,4 @@ map ; <Plug>(easymotion-s)
 " =========================
 set termguicolors
 colorscheme dracula 
+highlight Normal guibg=NONE ctermbg=None
