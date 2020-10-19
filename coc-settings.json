@@ -1,4 +1,6 @@
 {
+  "suggest.enablePreselect": false,
+  "codeLens.enable": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": ["json", "go, python, markdown "],
   "explorer.file.column.indent.indentLine": true,

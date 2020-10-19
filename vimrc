@@ -394,16 +394,16 @@ noremap <leader>bd :bdelete<CR>
 let g:coc_global_extensions = [ 
 			\'coc-diagnostic',
 			\'coc-json',
+			\'coc-yaml',
 			\'coc-vimlsp',
 			\'coc-sh',
+			\'coc-go',
+			\'coc-python',
+			\'coc-snippets',
 			\'coc-yank',
 			\'coc-git',
-			\'coc-yaml',
-			\'coc-python',
 			\'coc-ci',
-			\'coc-snippets',
 			\'coc-prettier',
-			\'coc-go',
 			\'coc-explorer',
 			\'coc-actions']
 " Don't pass messages to |ins-completion-menu|.
