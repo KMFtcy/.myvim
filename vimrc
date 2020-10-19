@@ -113,6 +113,7 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>tt :top terminal<CR>
+nnoremap ZQ :qa<CR>
 
 
 " =========================
