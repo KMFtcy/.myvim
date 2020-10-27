@@ -352,7 +352,7 @@ let g:vista_fzf_preview = ['right:50%']
 " =========================
 " setting for coc-explorer 
 " =========================
-nnoremap <leader>e :<C-u>CocCommand explorer<CR>
+nnoremap <leader>e :<C-u>CocCommand explorer --sources buffer+,file+<CR>
 
 " =========================
 " setting for git related plugin
