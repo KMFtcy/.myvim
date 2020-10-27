@@ -317,6 +317,7 @@ autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 " e.g., more compact: ["▸ ", ""]
 " Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista#renderer#enable_icon = 1
 " Executive used when opening vista sidebar without specifying it.
 " See all the avaliable executives via `:echo g:vista#executives`.
 let g:vista_default_executive = 'coc'
@@ -353,6 +354,12 @@ let g:vista_fzf_preview = ['right:50%']
 " setting for coc-explorer 
 " =========================
 nnoremap <leader>e :<C-u>CocCommand explorer --sources buffer+,file+<CR>
+let g:loaded_netrw = 1
+
+function! AuCocNvimInit()
+      exe ':CocCommand explorer --sources buffer+,file+ --no-focus'
+endfunction
+autocmd User CocNvimInit call AuCocNvimInit()
 
 " =========================
 " setting for git related plugin
