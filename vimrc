@@ -150,7 +150,7 @@ nnoremap <silent> <leader>zk :<c-u>call RepeatCmd('call NextClosedFold("k")')<cr
 " =========================
 nnoremap <leader>fa :Leaderf rg<CR> 
 nnoremap <leader>fb :Leaderf buffer<CR> 
-nnoremap <leader>ff :Leaderf file<CR> 
+nnoremap <C-p> :Leaderf file<CR> 
 nnoremap <leader>fl :Leaderf line<CR>
 nnoremap <leader>ft :Leaderf tag<CR>
 vnoremap <leader>fa y:Leaderf rg <C-r>"<CR>
